@@ -1,23 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Navbar } from "@/components/Navbar";
 
 export default function ContactPage() {
   const { t } = useLocale();
-  const navbarRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const navbar = navbarRef.current;
-    const handleScroll = () => {
-      if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -37,20 +26,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <nav id="navbar" ref={navbarRef}>
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            <img src="/logo.png" alt="Lunor Hair Extensions" className="nav-logo-img" />
-          </Link>
-          <div className="nav-right">
-            <LanguageSwitcher />
-            <ul className="nav-links">
-              <li><Link href="/products">{t("nav.products")}</Link></li>
-              <li><Link href="/contact" className="nav-active">{t("nav.contact")}</Link></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar activeLink="contact" />
 
       <main className="contact-page">
         <section className="contact-page-hero">

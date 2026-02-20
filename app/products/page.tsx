@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Navbar } from "@/components/Navbar";
 
 export default function ProductsPage() {
   const { t } = useLocale();
-  const navbarRef = useRef<HTMLElement>(null);
-
   const handleNotifyClick = () => {
     const notifyBtn = document.querySelector(".products-page .notify-btn") as HTMLButtonElement;
     const notifyInput = document.querySelector(".products-page .notify-input") as HTMLInputElement;
@@ -27,15 +25,6 @@ export default function ProductsPage() {
       setTimeout(() => (notifyInput.style.borderColor = ""), 2000);
     }
   };
-
-  useEffect(() => {
-    const navbar = navbarRef.current;
-    const handleScroll = () => {
-      if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
@@ -56,20 +45,7 @@ export default function ProductsPage() {
 
   return (
     <>
-      <nav id="navbar" ref={navbarRef}>
-        <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            <img src="/logo.png" alt="Lunor Hair Extensions" className="nav-logo-img" />
-          </Link>
-          <div className="nav-right">
-            <LanguageSwitcher />
-            <ul className="nav-links">
-              <li><Link href="/products" className="nav-active">{t("nav.products")}</Link></li>
-              <li><Link href="/contact">{t("nav.contact")}</Link></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar activeLink="products" />
 
       <main className="products-page">
         {/* Page Hero */}
