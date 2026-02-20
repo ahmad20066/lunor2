@@ -25,6 +25,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+[dir="rtl"] body {
+  font-family: var(--font-arabic), 'Cairo', sans-serif;
+}
 
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 6px; }
@@ -33,6 +36,7 @@ body {
 
 /* ─── TYPOGRAPHY ─── */
 .serif { font-family: var(--font-cormorant), 'Cormorant Garamond', serif; }
+[dir="rtl"] .serif { font-family: var(--font-arabic), 'Cairo', sans-serif; }
 
 /* ─── UTILITY ─── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
@@ -91,14 +95,18 @@ nav.scrolled {
   max-width: 1200px; margin: 0 auto; padding: 0 40px;
 }
 .nav-logo {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
-  font-size: 2rem; font-weight: 500;
-  color: var(--gold);
   text-decoration: none;
-  letter-spacing: 2px;
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center;
 }
-.nav-logo span { color: var(--pink); }
+.nav-logo-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+.nav-right {
+  display: flex; align-items: center; gap: 32px;
+}
 .nav-links {
   display: flex; gap: 36px; list-style: none;
 }
@@ -120,6 +128,21 @@ nav.scrolled {
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-links a.nav-active { color: var(--gold); }
 .nav-links a.nav-active::after { transform: scaleX(1); }
+
+/* Language switcher */
+.language-switcher {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 0.7rem; letter-spacing: 1px;
+}
+.language-switcher button {
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-family: inherit;
+  padding: 4px 8px; transition: color 0.2s;
+}
+.language-switcher button:hover { color: var(--text); }
+.language-switcher button.active { color: var(--gold); font-weight: 600; }
+.lang-divider { color: rgba(139,115,54,0.4); font-weight: 300; }
+.nav-lang { display: flex; align-items: center; }
 
 /* ══════════════════════════════════════ HERO ══════════════════════════════════════ */
 #hero {
@@ -597,10 +620,11 @@ nav.scrolled {
   max-width: 1200px; margin: 0 auto;
 }
 .footer-logo {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 400;
-  color: var(--gold); letter-spacing: 2px;
+  display: flex; align-items: center;
+  text-decoration: none; transition: opacity 0.3s;
 }
+.footer-logo:hover { opacity: 0.85; }
+.footer-logo-img { height: 72px; width: auto; object-fit: contain; }
 .footer-copy {
   font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 1px;
 }
@@ -894,6 +918,7 @@ nav.scrolled {
   .product-img-col { min-height: 300px; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .nav-links { display: none; }
+  .nav-right { gap: 16px; }
   .footer-bar { flex-direction: column; gap: 16px; text-align: center; }
 }
 @media (max-width: 580px) {
@@ -910,3 +935,21 @@ nav.scrolled {
   .notify-form { flex-direction: column; }
   .notify-input { border-right: 1px solid rgba(139,115,54,0.25); border-bottom: none; }
 }
+
+/* ══════════════════════════════════════ RTL SUPPORT ══════════════════════════════════════ */
+[dir="rtl"] .nav-links a::after { transform-origin: right; }
+[dir="rtl"] .nav-links a:hover::after,
+[dir="rtl"] .nav-links a.nav-active::after { transform-origin: right; }
+[dir="rtl"] .reveal-left { transform: translateX(40px); }
+[dir="rtl"] .reveal-left.visible { transform: translateX(0); }
+[dir="rtl"] .reveal-right { transform: translateX(-40px); }
+[dir="rtl"] .reveal-right.visible { transform: translateX(0); }
+[dir="rtl"] .about-quote { border-left: none; border-right: 2px solid var(--gold); padding-left: 28px; padding-right: 24px; }
+[dir="rtl"] .notify-input { border-right: 1px solid rgba(139,115,54,0.25); border-left: none; }
+[dir="rtl"] .product-row.reverse { direction: ltr; }
+[dir="rtl"] .product-showcase-reverse .product-showcase-inner { direction: ltr; }
+[dir="rtl"] .ext-card { text-align: right; }
+[dir="rtl"] .ext-card-features li { flex-direction: row-reverse; }
+[dir="rtl"] .product-features li { flex-direction: row-reverse; }
+[dir="rtl"] .product-showcase-features li { flex-direction: row-reverse; }
+[dir="rtl"] .gold-line { background: linear-gradient(270deg, transparent, var(--gold), transparent); }

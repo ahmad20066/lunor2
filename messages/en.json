@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Premium Hair Extensions",
+    "titleLine1": "Where",
+    "titleLuxury": "Luxury",
+    "titleLine2": "Meets Hair",
+    "titlePerfection": "Perfection",
+    "subtitle": "Premium formulas crafted to protect, nourish, and extend the life of your extensions — because your hair deserves the finest rituals.",
+    "exploreExtensions": "Explore Extensions",
+    "discoverProducts": "Discover Products",
+    "scroll": "Scroll",
+    "altImage": "Lunor luxury hair care"
+  },
+  "about": {
+    "tag": "Our Story",
+    "titleLine1": "Born from",
+    "titlePassion": "Passion",
+    "titleLine2": "for Flawless Hair",
+    "body1": "Lunor is a premium beauty brand dedicated to elevating hair extension care and redefining modern hair rituals. Born from a passion for luxury, performance, and innovation — we were created to solve the real problems women face with hair extensions.",
+    "quote": "\"We don't just create products. We create rituals, confidence, and unforgettable hair experiences.\"",
+    "cite": "— Lunor, Hair Extensions",
+    "body2": "From our signature Shine Bomb Ampoules to our innovative Extension Survival Kit, every Lunor product is crafted with high-performance formulas, premium ingredients, and luxurious aesthetics.",
+    "exploreProducts": "Explore Our Products",
+    "yearsOf": "years of",
+    "research": "research",
+    "altImage": "Lunor product"
+  },
+  "extensions": {
+    "tag": "Our Collections",
+    "titleLine1": "Find Your Perfect",
+    "extension": "Extension",
+    "clipIn": {
+      "tag": "Most Popular",
+      "title": "Clip-In\nExtensions",
+      "desc": "The perfect solution for instant length and volume — no commitment needed. Easy to apply at home, removable in seconds, and completely damage-free.",
+      "f1": "Instant transformation at home",
+      "f2": "Zero damage to natural hair",
+      "f3": "Available in all shades & lengths",
+      "f4": "Perfect for daily wear or special occasions"
+    },
+    "tapeIn": {
+      "tag": "Semi-Permanent",
+      "title": "Tape-In\nExtensions",
+      "desc": "A seamless, natural look that blends effortlessly with your hair. Lightweight adhesive wefts lie flat against the scalp for invisible coverage.",
+      "f1": "Virtually undetectable blend",
+      "f2": "Lightweight, flat adhesive wefts",
+      "f3": "Lasts 6–8 weeks before re-application",
+      "f4": "Gentle on fine, delicate hair"
+    },
+    "nano": {
+      "tag": "Premium Quality",
+      "title": "Nano\nExtensions",
+      "desc": "The finest, most discreet extension technique available. Ultra-tiny nano rings are virtually invisible and protect your natural hair through the process.",
+      "f1": "Smallest, most discreet method",
+      "f2": "No heat, glue or chemicals required",
+      "f3": "Natural movement & incredible feel",
+      "f4": "Reusable and long-lasting result"
+    }
+  },
+  "products": {
+    "tag": "Our Formulas",
+    "titleLine1": "Crafted for",
+    "perfection": "Extension Perfection",
+    "availableNow": "Available Now",
+    "comingSoon": "Coming Soon",
+    "washBag": {
+      "title1": "Extension",
+      "title2": "Wash Bag",
+      "desc": "Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing — preventing tangles, stretch, and damage while keeping every strand perfectly maintained.",
+      "f1": "Fine-mesh premium netting protects every strand",
+      "f2": "Gold tassel & satin drawstring closure",
+      "f3": "Prevents tangling, matting & heat damage",
+      "f4": "Elegant gold LUNOR emblem plate",
+      "alt": "Extension Wash Bag"
+    },
+    "serum": {
+      "title1": "Extension Detangler",
+      "title2": "Serum",
+      "desc": "Our most anticipated formula yet. The Lunor Extension Detangler Serum is a lightweight, high-performance treatment designed to eliminate knots, restore silk-smooth texture, and extend the lifespan of your extensions with every use.",
+      "f1": "Instant detangle with zero breakage",
+      "f2": "Restores shine, softness & natural flow",
+      "f3": "Heat protection up to 230°C",
+      "f4": "Premium plant-based ingredients",
+      "alt": "Extension Detangler Serum",
+      "notifyLabel": "Be the first to know when it launches:",
+      "notifyPlaceholder": "Your email address...",
+      "notifyBtn": "Notify Me",
+      "notifyAdded": "✓ Added!",
+      "notifyNote": "✦ No spam. Launch announcement only."
+    }
+  },
+  "productsPage": {
+    "tag": "Our Formulas",
+    "titleLine1": "Crafted for",
+    "perfection": "Extension Perfection",
+    "subtitle": "Premium care essentials designed to protect, nourish, and extend the life of your hair extensions.",
+    "washBagDesc": "Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing — preventing tangles, stretch, and damage while keeping every strand perfectly maintained.",
+    "serumDesc": "Our most anticipated formula yet. A lightweight, high-performance treatment designed to eliminate knots, restore silk-smooth texture, and extend the lifespan of your extensions with every use.",
+    "notifyLabel": "Be the first to know when it launches",
+    "values": {
+      "ingredients": "Premium Ingredients",
+      "ingredientsDesc": "Only the finest botanicals in every formula",
+      "aesthetics": "Luxury Aesthetics",
+      "aestheticsDesc": "As beautiful on your vanity as on your hair",
+      "extendLife": "Extend Hair Life",
+      "extendLifeDesc": "Engineered to protect your investment"
+    },
+    "ctaText": "Questions about our products?",
+    "getInTouch": "Get In Touch"
+  },
+  "values": {
+    "ingredients": "Premium Ingredients",
+    "ingredientsDesc": "Only the finest botanicals and science-backed compounds in every formula",
+    "aesthetics": "Luxury Aesthetics",
+    "aestheticsDesc": "Designed to look as beautiful on your vanity as it performs on your hair",
+    "nourish": "Nourish & Protect",
+    "nourishDesc": "Deep conditioning formulas that restore life to every strand",
+    "extendLife": "Extend Hair Life",
+    "extendLifeDesc": "Engineered to dramatically increase the lifespan of your investment"
+  },
+  "contact": {
+    "eyebrow": "Get In Touch",
+    "titleLine1": "Ready to Begin",
+    "titleLine2": "Your Hair",
+    "titleRitual": "Ritual?",
+    "sub": "We'd love to hear from you. Reach out for product inquiries, collaborations, or simply to discover which Lunor collection is right for you.",
+    "email": "Email",
+    "phone": "Phone",
+    "instagram": "Instagram",
+    "emailHint": "We reply within 24 hours",
+    "phoneHint": "Call or WhatsApp",
+    "instagramHint": "Follow our journey",
+    "backToHome": "Back to Home"
+  },
+  "footer": {
+    "copy": "© 2025 Lunor Hair Extensions. All rights reserved."
+  }
+}

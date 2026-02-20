@@ -3,8 +3,11 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "@/lib/locale-context";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function ProductsPage() {
+  const { t } = useLocale();
   const navbarRef = useRef<HTMLElement>(null);
 
   const handleNotifyClick = () => {
@@ -12,11 +15,11 @@ export default function ProductsPage() {
     const notifyInput = document.querySelector(".products-page .notify-input") as HTMLInputElement;
     if (!notifyBtn || !notifyInput) return;
     if (notifyInput.value.includes("@")) {
-      notifyBtn.textContent = "✓ Added!";
+      notifyBtn.textContent = t("products.serum.notifyAdded");
       notifyBtn.style.background = "#8B7336";
       notifyInput.value = "";
       setTimeout(() => {
-        notifyBtn.textContent = "Notify Me";
+        notifyBtn.textContent = t("products.serum.notifyBtn");
         notifyBtn.style.background = "";
       }, 3000);
     } else {
@@ -56,12 +59,15 @@ export default function ProductsPage() {
       <nav id="navbar" ref={navbarRef}>
         <div className="nav-inner">
           <Link href="/" className="nav-logo">
-            Lun<span>o</span>r
+            <img src="/logo.png" alt="Lunor Hair Extensions" className="nav-logo-img" />
           </Link>
-          <ul className="nav-links">
-            <li><Link href="/products" className="nav-active">Products</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-          </ul>
+          <div className="nav-right">
+            <LanguageSwitcher />
+            <ul className="nav-links">
+              <li><Link href="/products" className="nav-active">{t("nav.products")}</Link></li>
+              <li><Link href="/contact">{t("nav.contact")}</Link></li>
+            </ul>
+          </div>
         </div>
       </nav>
 
@@ -70,13 +76,11 @@ export default function ProductsPage() {
         <section className="products-hero">
           <div className="products-hero-bg" />
           <div className="container products-hero-inner">
-            <span className="section-tag reveal">Our Formulas</span>
+            <span className="section-tag reveal">{t("productsPage.tag")}</span>
             <h1 className="products-hero-title serif reveal">
-              Crafted for<br /><em>Extension Perfection</em>
+              {t("productsPage.titleLine1")}<br /><em>{t("productsPage.perfection")}</em>
             </h1>
-            <p className="products-hero-sub reveal">
-              Premium care essentials designed to protect, nourish, and extend the life of your hair extensions.
-            </p>
+            <p className="products-hero-sub reveal">{t("productsPage.subtitle")}</p>
             <div className="gold-line reveal" style={{ marginTop: "24px" }} />
           </div>
         </section>
@@ -88,25 +92,23 @@ export default function ProductsPage() {
               <div className="product-showcase-img-frame" />
               <Image
                 src="/product-wash-bag.jpg"
-                alt="Lunor Extension Wash Bag"
+                alt={t("products.washBag.alt")}
                 width={700}
                 height={700}
                 className="product-showcase-image"
               />
             </div>
             <div className="product-showcase-content reveal-right">
-              <span className="product-showcase-badge">Available Now</span>
+              <span className="product-showcase-badge">{t("products.availableNow")}</span>
               <h2 className="product-showcase-title serif">
-                Extension<br /><em>Wash Bag</em>
+                {t("products.washBag.title1")}<br /><em>{t("products.washBag.title2")}</em>
               </h2>
-              <p className="product-showcase-desc">
-                Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing — preventing tangles, stretch, and damage while keeping every strand perfectly maintained.
-              </p>
+              <p className="product-showcase-desc">{t("productsPage.washBagDesc")}</p>
               <ul className="product-showcase-features">
-                <li><span className="feat-dot">✦</span> Fine-mesh premium netting protects every strand</li>
-                <li><span className="feat-dot">✦</span> Gold tassel & satin drawstring closure</li>
-                <li><span className="feat-dot">✦</span> Prevents tangling, matting & heat damage</li>
-                <li><span className="feat-dot">✦</span> Elegant gold LUNOR emblem plate</li>
+                <li><span className="feat-dot">✦</span> {t("products.washBag.f1")}</li>
+                <li><span className="feat-dot">✦</span> {t("products.washBag.f2")}</li>
+                <li><span className="feat-dot">✦</span> {t("products.washBag.f3")}</li>
+                <li><span className="feat-dot">✦</span> {t("products.washBag.f4")}</li>
               </ul>
             </div>
           </div>
@@ -119,33 +121,31 @@ export default function ProductsPage() {
               <div className="product-showcase-img-frame" />
               <Image
                 src="/product-serum.jpg"
-                alt="Lunor Extension Detangler Serum"
+                alt={t("products.serum.alt")}
                 width={700}
                 height={700}
                 className="product-showcase-image"
               />
             </div>
             <div className="product-showcase-content reveal-left">
-              <span className="product-showcase-badge coming-soon">Coming Soon</span>
+              <span className="product-showcase-badge coming-soon">{t("products.comingSoon")}</span>
               <h2 className="product-showcase-title serif">
-                Extension Detangler<br /><em>Serum</em>
+                {t("products.serum.title1")}<br /><em>{t("products.serum.title2")}</em>
               </h2>
-              <p className="product-showcase-desc">
-                Our most anticipated formula yet. A lightweight, high-performance treatment designed to eliminate knots, restore silk-smooth texture, and extend the lifespan of your extensions with every use.
-              </p>
+              <p className="product-showcase-desc">{t("productsPage.serumDesc")}</p>
               <ul className="product-showcase-features">
-                <li><span className="feat-dot">✦</span> Instant detangle with zero breakage</li>
-                <li><span className="feat-dot">✦</span> Restores shine, softness & natural flow</li>
-                <li><span className="feat-dot">✦</span> Heat protection up to 230°C</li>
-                <li><span className="feat-dot">✦</span> Premium plant-based ingredients</li>
+                <li><span className="feat-dot">✦</span> {t("products.serum.f1")}</li>
+                <li><span className="feat-dot">✦</span> {t("products.serum.f2")}</li>
+                <li><span className="feat-dot">✦</span> {t("products.serum.f3")}</li>
+                <li><span className="feat-dot">✦</span> {t("products.serum.f4")}</li>
               </ul>
               <div className="product-notify-block reveal">
-                <p className="product-notify-label">Be the first to know when it launches</p>
+                <p className="product-notify-label">{t("productsPage.notifyLabel")}</p>
                 <div className="notify-form">
-                  <input className="notify-input" type="email" placeholder="Your email address..." />
-                  <button className="notify-btn" type="button" onClick={handleNotifyClick}>Notify Me</button>
+                  <input className="notify-input" type="email" placeholder={t("products.serum.notifyPlaceholder")} />
+                  <button className="notify-btn" type="button" onClick={handleNotifyClick}>{t("products.serum.notifyBtn")}</button>
                 </div>
-                <p className="notify-note">✦ No spam. Launch announcement only.</p>
+                <p className="notify-note">{t("products.serum.notifyNote")}</p>
               </div>
             </div>
           </div>
@@ -157,18 +157,18 @@ export default function ProductsPage() {
             <div className="products-values-grid">
               <div className="products-value-item reveal">
                 <span className="products-value-icon">🌿</span>
-                <h4 className="products-value-title serif">Premium Ingredients</h4>
-                <p className="products-value-desc">Only the finest botanicals in every formula</p>
+                <h4 className="products-value-title serif">{t("productsPage.values.ingredients")}</h4>
+                <p className="products-value-desc">{t("productsPage.values.ingredientsDesc")}</p>
               </div>
               <div className="products-value-item reveal">
                 <span className="products-value-icon">✨</span>
-                <h4 className="products-value-title serif">Luxury Aesthetics</h4>
-                <p className="products-value-desc">As beautiful on your vanity as on your hair</p>
+                <h4 className="products-value-title serif">{t("productsPage.values.aesthetics")}</h4>
+                <p className="products-value-desc">{t("productsPage.values.aestheticsDesc")}</p>
               </div>
               <div className="products-value-item reveal">
                 <span className="products-value-icon">💎</span>
-                <h4 className="products-value-title serif">Extend Hair Life</h4>
-                <p className="products-value-desc">Engineered to protect your investment</p>
+                <h4 className="products-value-title serif">{t("productsPage.values.extendLife")}</h4>
+                <p className="products-value-desc">{t("productsPage.values.extendLifeDesc")}</p>
               </div>
             </div>
           </div>
@@ -177,9 +177,9 @@ export default function ProductsPage() {
         {/* CTA strip */}
         <section className="products-cta">
           <div className="container">
-            <p className="products-cta-text serif">Questions about our products?</p>
+            <p className="products-cta-text serif">{t("productsPage.ctaText")}</p>
             <Link href="/contact" className="btn-outline" style={{ marginTop: "16px" }}>
-              Get In Touch
+              {t("productsPage.getInTouch")}
             </Link>
           </div>
         </section>

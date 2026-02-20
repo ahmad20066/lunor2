@@ -3,8 +3,11 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "@/lib/locale-context";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function Home() {
+  const { t } = useLocale();
   const navbarRef = useRef<HTMLElement>(null);
   const particlesRef = useRef<HTMLDivElement>(null);
 
@@ -62,11 +65,11 @@ export default function Home() {
     const notifyInput = document.querySelector(".notify-input") as HTMLInputElement;
     if (!notifyBtn || !notifyInput) return;
     if (notifyInput.value.includes("@")) {
-      notifyBtn.textContent = "✓ Added!";
+      notifyBtn.textContent = t("products.serum.notifyAdded");
       notifyBtn.style.background = "#8B7336";
       notifyInput.value = "";
       setTimeout(() => {
-        notifyBtn.textContent = "Notify Me";
+        notifyBtn.textContent = t("products.serum.notifyBtn");
         notifyBtn.style.background = "";
       }, 3000);
     } else {
@@ -80,12 +83,15 @@ export default function Home() {
       <nav id="navbar" ref={navbarRef}>
         <div className="nav-inner">
           <Link href="/#hero" className="nav-logo">
-            Lun<span>o</span>r
+            <img src="/logo.png" alt="Lunor Hair Extensions" className="nav-logo-img" />
           </Link>
-          <ul className="nav-links">
-            <li><Link href="/products">Products</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-          </ul>
+          <div className="nav-right">
+            <LanguageSwitcher />
+            <ul className="nav-links">
+              <li><Link href="/products">{t("nav.products")}</Link></li>
+              <li><Link href="/contact">{t("nav.contact")}</Link></li>
+            </ul>
+          </div>
         </div>
       </nav>
 
@@ -104,30 +110,30 @@ export default function Home() {
           <div className="hero-text">
             <div className="hero-badge">
               <div className="dot" />
-              Premium Hair Extensions
+              {t("hero.badge")}
             </div>
             <h1 className="hero-title serif">
-              Where <em>Luxury</em><br />
-              Meets Hair<br />
-              <span className="pink-word">Perfection</span>
+              {t("hero.titleLine1")} <em>{t("hero.titleLuxury")}</em><br />
+              {t("hero.titleLine2")}<br />
+              <span className="pink-word">{t("hero.titlePerfection")}</span>
             </h1>
             <p className="hero-subtitle">
-              Premium formulas crafted to protect, nourish, and extend the life of your extensions — because your hair deserves the finest rituals.
+              {t("hero.subtitle")}
             </p>
             <div className="hero-ctas">
-              <Link href="/#extensions" className="btn-primary">Explore Extensions</Link>
-              <Link href="/products" className="btn-outline">Discover Products</Link>
+              <Link href="/#extensions" className="btn-primary">{t("hero.exploreExtensions")}</Link>
+              <Link href="/products" className="btn-outline">{t("hero.discoverProducts")}</Link>
             </div>
           </div>
           <div className="hero-image-wrap">
-            <Image src="/hero.jpg" alt="Lunor luxury hair care" className="hero-img" width={460} height={460} />
+            <Image src="/hero.jpg" alt={t("hero.altImage")} className="hero-img" width={460} height={460} />
             <span className="hero-sparkle hs1">✦</span>
             <span className="hero-sparkle hs2">✦</span>
             <span className="hero-sparkle hs3">✦</span>
           </div>
         </div>
         <div className="scroll-indicator">
-          <span>Scroll</span>
+          <span>{t("hero.scroll")}</span>
           <div className="scroll-mouse" />
         </div>
       </section>
@@ -137,28 +143,28 @@ export default function Home() {
           <div className="about-grid">
             <div className="about-img-wrap reveal-left">
               <div className="about-img-frame" />
-              <Image src="/about.jpg" alt="Lunor product" className="about-img" width={600} height={600} />
+              <Image src="/about.jpg" alt={t("about.altImage")} className="about-img" width={600} height={600} />
               <div className="about-img-accent">
                 <span className="num serif">3+</span>
-                <span className="label">years of<br />research</span>
+                <span className="label">{t("about.yearsOf")}<br />{t("about.research")}</span>
               </div>
             </div>
             <div className="about-text reveal-right">
-              <span className="section-tag">Our Story</span>
+              <span className="section-tag">{t("about.tag")}</span>
               <h2 className="section-title serif">
-                Born from<br /><em>Passion</em> for<br />Flawless Hair
+                {t("about.titleLine1")}<br /><em>{t("about.titlePassion")}</em><br />{t("about.titleLine2")}
               </h2>
               <p className="about-body">
-                Lunor is a premium beauty brand dedicated to elevating hair extension care and redefining modern hair rituals. Born from a passion for luxury, performance, and innovation — we were created to solve the real problems women face with hair extensions.
+                {t("about.body1")}
               </p>
               <div className="about-quote">
-                <p>&quot;We don&apos;t just create products. We create rituals, confidence, and unforgettable hair experiences.&quot;</p>
-                <cite>— Lunor, Hair Extensions</cite>
+                <p>{t("about.quote")}</p>
+                <cite>{t("about.cite")}</cite>
               </div>
               <p className="about-body">
-                From our signature Shine Bomb Ampoules to our innovative Extension Survival Kit, every Lunor product is crafted with high-performance formulas, premium ingredients, and luxurious aesthetics.
+                {t("about.body2")}
               </p>
-              <Link href="/products" className="btn-primary" style={{ width: "fit-content" }}>Explore Our Products</Link>
+              <Link href="/products" className="btn-primary" style={{ width: "fit-content" }}>{t("about.exploreProducts")}</Link>
             </div>
           </div>
         </div>
@@ -167,9 +173,9 @@ export default function Home() {
       <section id="extensions">
         <div className="container">
           <div className="extensions-header reveal">
-            <span className="section-tag">Our Collections</span>
+            <span className="section-tag">{t("extensions.tag")}</span>
             <h2 className="section-title serif" style={{ textAlign: "center" }}>
-              Find Your Perfect<br /><em>Extension</em>
+              {t("extensions.titleLine1")}<br /><em>{t("extensions.extension")}</em>
             </h2>
             <div className="gold-line" style={{ marginTop: "20px" }} />
           </div>
@@ -184,16 +190,14 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <span className="ext-card-tag">Most Popular</span>
-              <h3 className="ext-card-title serif">Clip-In<br />Extensions</h3>
-              <p className="ext-card-desc">
-                The perfect solution for instant length and volume — no commitment needed. Easy to apply at home, removable in seconds, and completely damage-free.
-              </p>
+              <span className="ext-card-tag">{t("extensions.clipIn.tag")}</span>
+              <h3 className="ext-card-title serif" style={{ whiteSpace: "pre-line" }}>{t("extensions.clipIn.title")}</h3>
+              <p className="ext-card-desc">{t("extensions.clipIn.desc")}</p>
               <ul className="ext-card-features">
-                <li>Instant transformation at home</li>
-                <li>Zero damage to natural hair</li>
-                <li>Available in all shades & lengths</li>
-                <li>Perfect for daily wear or special occasions</li>
+                <li>{t("extensions.clipIn.f1")}</li>
+                <li>{t("extensions.clipIn.f2")}</li>
+                <li>{t("extensions.clipIn.f3")}</li>
+                <li>{t("extensions.clipIn.f4")}</li>
               </ul>
             </div>
             <div className="ext-card reveal" style={{ transitionDelay: "0.2s" }}>
@@ -206,16 +210,14 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <span className="ext-card-tag">Semi-Permanent</span>
-              <h3 className="ext-card-title serif">Tape-In<br />Extensions</h3>
-              <p className="ext-card-desc">
-                A seamless, natural look that blends effortlessly with your hair. Lightweight adhesive wefts lie flat against the scalp for invisible coverage.
-              </p>
+              <span className="ext-card-tag">{t("extensions.tapeIn.tag")}</span>
+              <h3 className="ext-card-title serif" style={{ whiteSpace: "pre-line" }}>{t("extensions.tapeIn.title")}</h3>
+              <p className="ext-card-desc">{t("extensions.tapeIn.desc")}</p>
               <ul className="ext-card-features">
-                <li>Virtually undetectable blend</li>
-                <li>Lightweight, flat adhesive wefts</li>
-                <li>Lasts 6–8 weeks before re-application</li>
-                <li>Gentle on fine, delicate hair</li>
+                <li>{t("extensions.tapeIn.f1")}</li>
+                <li>{t("extensions.tapeIn.f2")}</li>
+                <li>{t("extensions.tapeIn.f3")}</li>
+                <li>{t("extensions.tapeIn.f4")}</li>
               </ul>
             </div>
             <div className="ext-card reveal" style={{ transitionDelay: "0.3s" }}>
@@ -229,16 +231,14 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <span className="ext-card-tag">Premium Quality</span>
-              <h3 className="ext-card-title serif">Nano<br />Extensions</h3>
-              <p className="ext-card-desc">
-                The finest, most discreet extension technique available. Ultra-tiny nano rings are virtually invisible and protect your natural hair through the process.
-              </p>
+              <span className="ext-card-tag">{t("extensions.nano.tag")}</span>
+              <h3 className="ext-card-title serif" style={{ whiteSpace: "pre-line" }}>{t("extensions.nano.title")}</h3>
+              <p className="ext-card-desc">{t("extensions.nano.desc")}</p>
               <ul className="ext-card-features">
-                <li>Smallest, most discreet method</li>
-                <li>No heat, glue or chemicals required</li>
-                <li>Natural movement & incredible feel</li>
-                <li>Reusable and long-lasting result</li>
+                <li>{t("extensions.nano.f1")}</li>
+                <li>{t("extensions.nano.f2")}</li>
+                <li>{t("extensions.nano.f3")}</li>
+                <li>{t("extensions.nano.f4")}</li>
               </ul>
             </div>
           </div>
@@ -248,54 +248,50 @@ export default function Home() {
       <section id="products">
         <div className="container">
           <div className="products-header reveal">
-            <span className="section-tag">Our Formulas</span>
+            <span className="section-tag">{t("products.tag")}</span>
             <h2 className="section-title serif" style={{ textAlign: "center" }}>
-              Crafted for<br /><em>Extension Perfection</em>
+              {t("products.titleLine1")}<br /><em>{t("products.perfection")}</em>
             </h2>
             <div className="gold-line" style={{ marginTop: "20px" }} />
           </div>
           <div className="product-row reveal">
             <div className="product-img-col" style={{ position: "relative" }}>
-              <Image src="/product-wash-bag.jpg" alt="Extension Wash Bag" fill style={{ objectFit: "cover" }} sizes="(max-width: 900px) 100vw, 50vw" />
+              <Image src="/product-wash-bag.jpg" alt={t("products.washBag.alt")} fill style={{ objectFit: "cover" }} sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="product-info-col">
-              <span className="product-badge">Available Now</span>
-              <h3 className="product-name serif">Extension<br /><em>Wash Bag</em></h3>
-              <p className="product-desc">
-                Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing — preventing tangles, stretch, and damage while keeping every strand perfectly maintained.
-              </p>
+              <span className="product-badge">{t("products.availableNow")}</span>
+              <h3 className="product-name serif">{t("products.washBag.title1")}<br /><em>{t("products.washBag.title2")}</em></h3>
+              <p className="product-desc">{t("products.washBag.desc")}</p>
               <ul className="product-features">
-                <li><span className="feat-icon">✦</span> Fine-mesh premium netting protects every strand</li>
-                <li><span className="feat-icon">✦</span> Gold tassel & satin drawstring closure</li>
-                <li><span className="feat-icon">✦</span> Prevents tangling, matting & heat damage</li>
-                <li><span className="feat-icon">✦</span> Elegant gold LUNOR emblem plate</li>
+                <li><span className="feat-icon">✦</span> {t("products.washBag.f1")}</li>
+                <li><span className="feat-icon">✦</span> {t("products.washBag.f2")}</li>
+                <li><span className="feat-icon">✦</span> {t("products.washBag.f3")}</li>
+                <li><span className="feat-icon">✦</span> {t("products.washBag.f4")}</li>
               </ul>
             </div>
           </div>
           <div className="product-row reverse reveal">
             <div className="product-img-col" style={{ position: "relative" }}>
-              <Image src="/product-serum.jpg" alt="Extension Detangler Serum" fill style={{ objectFit: "cover" }} sizes="(max-width: 900px) 100vw, 50vw" />
+              <Image src="/product-serum.jpg" alt={t("products.serum.alt")} fill style={{ objectFit: "cover" }} sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className="product-info-col">
-              <span className="product-badge coming-soon-badge">Coming Soon</span>
-              <h3 className="product-name serif">Extension Detangler<br /><em>Serum</em></h3>
-              <p className="product-desc">
-                Our most anticipated formula yet. The Lunor Extension Detangler Serum is a lightweight, high-performance treatment designed to eliminate knots, restore silk-smooth texture, and extend the lifespan of your extensions with every use.
-              </p>
+              <span className="product-badge coming-soon-badge">{t("products.comingSoon")}</span>
+              <h3 className="product-name serif">{t("products.serum.title1")}<br /><em>{t("products.serum.title2")}</em></h3>
+              <p className="product-desc">{t("products.serum.desc")}</p>
               <ul className="product-features">
-                <li><span className="feat-icon">✦</span> Instant detangle with zero breakage</li>
-                <li><span className="feat-icon">✦</span> Restores shine, softness & natural flow</li>
-                <li><span className="feat-icon">✦</span> Heat protection up to 230°C</li>
-                <li><span className="feat-icon">✦</span> Premium plant-based ingredients</li>
+                <li><span className="feat-icon">✦</span> {t("products.serum.f1")}</li>
+                <li><span className="feat-icon">✦</span> {t("products.serum.f2")}</li>
+                <li><span className="feat-icon">✦</span> {t("products.serum.f3")}</li>
+                <li><span className="feat-icon">✦</span> {t("products.serum.f4")}</li>
               </ul>
               <p style={{ fontSize: "0.8rem", color: "var(--pink)", fontWeight: 500, marginBottom: "12px", letterSpacing: "1px" }}>
-                Be the first to know when it launches:
+                {t("products.serum.notifyLabel")}
               </p>
               <div className="notify-form">
-                <input className="notify-input" type="email" placeholder="Your email address..." />
-                <button className="notify-btn" onClick={handleNotifyClick}>Notify Me</button>
+                <input className="notify-input" type="email" placeholder={t("products.serum.notifyPlaceholder")} />
+                <button className="notify-btn" onClick={handleNotifyClick}>{t("products.serum.notifyBtn")}</button>
               </div>
-              <p className="notify-note">✦ No spam. Launch announcement only.</p>
+              <p className="notify-note">{t("products.serum.notifyNote")}</p>
             </div>
           </div>
         </div>
@@ -306,23 +302,23 @@ export default function Home() {
           <div className="values-grid">
             <div className="value-item reveal" style={{ transitionDelay: "0.1s" }}>
               <span className="value-icon">🌿</span>
-              <h4 className="value-title serif">Premium Ingredients</h4>
-              <p className="value-desc">Only the finest botanicals and science-backed compounds in every formula</p>
+              <h4 className="value-title serif">{t("values.ingredients")}</h4>
+              <p className="value-desc">{t("values.ingredientsDesc")}</p>
             </div>
             <div className="value-item reveal" style={{ transitionDelay: "0.2s" }}>
               <span className="value-icon">✨</span>
-              <h4 className="value-title serif">Luxury Aesthetics</h4>
-              <p className="value-desc">Designed to look as beautiful on your vanity as it performs on your hair</p>
+              <h4 className="value-title serif">{t("values.aesthetics")}</h4>
+              <p className="value-desc">{t("values.aestheticsDesc")}</p>
             </div>
             <div className="value-item reveal" style={{ transitionDelay: "0.3s" }}>
               <span className="value-icon">💧</span>
-              <h4 className="value-title serif">Nourish & Protect</h4>
-              <p className="value-desc">Deep conditioning formulas that restore life to every strand</p>
+              <h4 className="value-title serif">{t("values.nourish")}</h4>
+              <p className="value-desc">{t("values.nourishDesc")}</p>
             </div>
             <div className="value-item reveal" style={{ transitionDelay: "0.4s" }}>
               <span className="value-icon">💎</span>
-              <h4 className="value-title serif">Extend Hair Life</h4>
-              <p className="value-desc">Engineered to dramatically increase the lifespan of your investment</p>
+              <h4 className="value-title serif">{t("values.extendLife")}</h4>
+              <p className="value-desc">{t("values.extendLifeDesc")}</p>
             </div>
           </div>
         </div>
@@ -330,13 +326,11 @@ export default function Home() {
 
       <footer id="contact">
         <div className="contact-inner reveal">
-          <span className="contact-eyebrow">Get In Touch</span>
+          <span className="contact-eyebrow">{t("contact.eyebrow")}</span>
           <h2 className="contact-title serif">
-            Ready to Begin<br />Your Hair <em>Ritual?</em>
+            {t("contact.titleLine1")}<br />{t("contact.titleLine2")}{t("contact.titleRitual") ? <> <em>{t("contact.titleRitual")}</em></> : null}
           </h2>
-          <p className="contact-sub">
-            We&apos;d love to hear from you. Reach out for product inquiries, collaborations, or simply to discover which Lunor collection is right for you.
-          </p>
+          <p className="contact-sub">{t("contact.sub")}</p>
           <div className="contact-links">
             <a href="mailto:lunorhairextension@gmail.com" className="contact-link-item">
               <div className="icon">✉</div>
@@ -357,8 +351,10 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-bar">
-          <div className="footer-logo">Lunor</div>
-          <div className="footer-copy">© 2025 Lunor Hair Extensions. All rights reserved.</div>
+          <Link href="/#hero" className="footer-logo">
+            <Image src="/logo.png" alt="Lunor Hair Extensions" width={200} height={72} className="footer-logo-img" />
+          </Link>
+          <div className="footer-copy">{t("footer.copy")}</div>
           <div className="footer-socials">
             <a className="footer-social" href="#" title="Instagram">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
