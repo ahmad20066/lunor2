@@ -44,19 +44,32 @@ export default function ContactPage() {
 
         <section className="contact-page-links">
           <div className="contact-page-cards">
-            <a href="mailto:lunorhairextension@gmail.com" className="contact-card reveal">
-              <span className="contact-card-icon">✉</span>
-              <h3 className="contact-card-title serif">{t("contact.email")}</h3>
-              <p className="contact-card-value">lunorhairextension@gmail.com</p>
-              <span className="contact-card-hint">{t("contact.emailHint")}</span>
-            </a>
-            <a href="tel:+905523538559" className="contact-card reveal">
+            <div className="contact-cards-top">
+              <a href="mailto:lunorhairextension@gmail.com" className="contact-card reveal">
+                <span className="contact-card-icon">✉</span>
+                <h3 className="contact-card-title serif">{t("contact.email")}</h3>
+                <p className="contact-card-value">lunorhairextension@gmail.com</p>
+                <span className="contact-card-hint">{t("contact.emailHint")}</span>
+              </a>
+              <a href="tel:+905523538559" className="contact-card reveal">
+                <span className="contact-card-icon">
+                  <Image src="/phone-call.png" alt="" width={28} height={28} className="contact-card-phone-icon" />
+                </span>
+                <h3 className="contact-card-title serif">{t("contact.phone")}</h3>
+                <p className="contact-card-value"><span dir="ltr">+90 552 353 85 59</span></p>
+                <span className="contact-card-hint">{t("contact.phoneHint")}</span>
+              </a>
+            </div>
+            <div className="contact-cards-bottom">
+            <a href="https://www.facebook.com/lunor.hair/" target="_blank" rel="noopener noreferrer" className="contact-card reveal">
               <span className="contact-card-icon">
-                <Image src="/phone-call.png" alt="" width={28} height={28} className="contact-card-phone-icon" />
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
               </span>
-              <h3 className="contact-card-title serif">{t("contact.phone")}</h3>
-              <p className="contact-card-value"><span dir="ltr">+90 552 353 85 59</span></p>
-              <span className="contact-card-hint">{t("contact.phoneHint")}</span>
+              <h3 className="contact-card-title serif">{t("contact.facebook")}</h3>
+              <p className="contact-card-value">lunor.hair</p>
+              <span className="contact-card-hint">{t("contact.facebookHint")}</span>
             </a>
             <a href="https://www.instagram.com/lunor_hair/" target="_blank" rel="noopener noreferrer" className="contact-card reveal">
               <span className="contact-card-icon">
@@ -68,16 +81,6 @@ export default function ContactPage() {
               <p className="contact-card-value">@lunor_hair</p>
               <span className="contact-card-hint">{t("contact.instagramHint")}</span>
             </a>
-            <a href="https://www.facebook.com/lunor.hair/" target="_blank" rel="noopener noreferrer" className="contact-card reveal">
-              <span className="contact-card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </span>
-              <h3 className="contact-card-title serif">{t("contact.facebook")}</h3>
-              <p className="contact-card-value">lunor.hair</p>
-              <span className="contact-card-hint">{t("contact.facebookHint")}</span>
-            </a>
             <a href="https://www.tiktok.com/@lunor_hair?lang=en-GB" target="_blank" rel="noopener noreferrer" className="contact-card reveal">
               <span className="contact-card-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -88,6 +91,7 @@ export default function ContactPage() {
               <p className="contact-card-value">@lunor_hair</p>
               <span className="contact-card-hint">{t("contact.tiktokHint")}</span>
             </a>
+            </div>
           </div>
         </section>
 

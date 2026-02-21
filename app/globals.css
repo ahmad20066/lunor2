@@ -1059,12 +1059,16 @@ nav.scrolled {
 .contact-page-links { padding: 60px 40px 80px; }
 .contact-page-cards {
   max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  display: flex; flex-direction: column; align-items: center; gap: 32px;
+}
+.contact-cards-top,
+.contact-cards-bottom {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
 }
 .contact-card {
   text-decoration: none;
   padding: 40px 28px;
+  min-width: 280px;
   background: white;
   border: 1px solid rgba(139,115,54,0.12);
   text-align: center;
@@ -1104,7 +1108,7 @@ nav.scrolled {
 }
 
 @media (max-width: 900px) {
-  .contact-page-cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 1000px; margin: 0 auto; }
+  .contact-cards-top, .contact-cards-bottom { max-width: 100%; }
   .product-module-inner {
     padding: 0 24px;
   }
@@ -1124,10 +1128,8 @@ nav.scrolled {
   .products-values-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {
-  .contact-page-cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 700px; margin: 0 auto; }
-}
-@media (max-width: 500px) {
-  .contact-page-cards { grid-template-columns: 1fr; max-width: 100%; margin: 0 auto; }
+  .contact-cards-top { flex-direction: column; align-items: center; }
+  .contact-cards-bottom { flex-direction: column; align-items: center; }
 }
 
 /* Product modules - mobile optimized (phones) */
