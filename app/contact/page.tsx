@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 import { Navbar } from "@/components/Navbar";
@@ -50,7 +51,9 @@ export default function ContactPage() {
               <span className="contact-card-hint">{t("contact.emailHint")}</span>
             </a>
             <a href="tel:+905523538559" className="contact-card reveal">
-              <span className="contact-card-icon">✆</span>
+              <span className="contact-card-icon">
+                <Image src="/phone-call.png" alt="" width={28} height={28} className="contact-card-phone-icon" />
+              </span>
               <h3 className="contact-card-title serif">{t("contact.phone")}</h3>
               <p className="contact-card-value"><span dir="ltr">+90 552 353 85 59</span></p>
               <span className="contact-card-hint">{t("contact.phoneHint")}</span>

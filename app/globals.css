@@ -310,7 +310,7 @@ nav.scrolled {
 .hero-subtitle {
   font-size: 0.875rem; line-height: 1.8;
   color: var(--muted); font-weight: 300;
-  max-width: 420px; margin-bottom: 40px;
+  max-width: 340px; margin-bottom: 40px;
 }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
@@ -757,6 +757,13 @@ nav.scrolled {
 .contact-link-item:hover .icon {
   background: var(--pink); border-color: var(--pink); color: white;
 }
+.contact-link-phone-icon,
+.contact-card-phone-icon {
+  object-fit: contain;
+}
+.contact-link-item:hover .contact-link-phone-icon {
+  filter: brightness(0) invert(1);
+}
 .footer-bar {
   border-top: 1px solid rgba(212,36,110,0.2);
   padding: 28px 40px;
@@ -1085,6 +1092,7 @@ nav.scrolled {
   font-size: 0.85rem; color: var(--text);
   line-height: 1.5;
   white-space: nowrap;
+  direction: ltr; unicode-bidi: embed;
 }
 .contact-card-hint {
   font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase;
@@ -1334,5 +1342,5 @@ nav.scrolled {
 [dir="rtl"] .gold-line { background: linear-gradient(270deg, transparent, var(--gold), transparent); }
 
 /* Phone numbers always LTR */
-.contact-link-item .ltr,
-.contact-card-value [dir="ltr"] { direction: ltr; unicode-bidi: embed; }
+.contact-link-item [dir="ltr"],
+.contact-card-value { direction: ltr; unicode-bidi: embed; }
