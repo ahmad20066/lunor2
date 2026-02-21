@@ -8,23 +8,6 @@ import { Navbar } from "@/components/Navbar";
 
 export default function ProductsPage() {
   const { t } = useLocale();
-  const handleNotifyClick = () => {
-    const notifyBtn = document.querySelector(".products-page .notify-btn") as HTMLButtonElement;
-    const notifyInput = document.querySelector(".products-page .notify-input") as HTMLInputElement;
-    if (!notifyBtn || !notifyInput) return;
-    if (notifyInput.value.includes("@")) {
-      notifyBtn.textContent = t("products.serum.notifyAdded");
-      notifyBtn.style.background = "#8B7336";
-      notifyInput.value = "";
-      setTimeout(() => {
-        notifyBtn.textContent = t("products.serum.notifyBtn");
-        notifyBtn.style.background = "";
-      }, 3000);
-    } else {
-      notifyInput.style.borderColor = "#D4246E";
-      setTimeout(() => (notifyInput.style.borderColor = ""), 2000);
-    }
-  };
 
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
@@ -61,67 +44,63 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* Product 1: Wash Bag */}
-        <section className="product-showcase">
-          <div className="product-showcase-inner">
-            <div className="product-showcase-img reveal-left">
-              <div className="product-showcase-img-frame" />
-              <Image
-                src="/product-wash-bag.jpg"
-                alt={t("products.washBag.alt")}
-                width={700}
-                height={700}
-                className="product-showcase-image"
-              />
+        {/* Product Module 1: Wash Bag - Image left, card right */}
+        <section className="product-module">
+          <div className="product-module-inner product-module-layout-1">
+            <div className="product-module-shape product-module-shape-tl" aria-hidden />
+            <div className="product-module-shape product-module-shape-tr" aria-hidden />
+            <div className="product-module-img-wrap reveal-left">
+              <div className="product-module-gallery">
+                <Image src="/images/bag 1.2.png" alt={t("products.washBag.alt")} width={400} height={400} className="product-module-img product-module-img-main" />
+                <Image src="/images/bag 2.2png.png" alt={t("products.washBag.alt")} width={400} height={400} className="product-module-img product-module-img-secondary" />
+              </div>
             </div>
-            <div className="product-showcase-content reveal-right">
-              <span className="product-showcase-badge">{t("products.availableNow")}</span>
-              <h2 className="product-showcase-title serif">
-                {t("products.washBag.title1")}<br /><em>{t("products.washBag.title2")}</em>
-              </h2>
-              <p className="product-showcase-desc">{t("productsPage.washBagDesc")}</p>
-              <ul className="product-showcase-features">
-                <li><span className="feat-dot">✦</span> {t("products.washBag.f1")}</li>
-                <li><span className="feat-dot">✦</span> {t("products.washBag.f2")}</li>
-                <li><span className="feat-dot">✦</span> {t("products.washBag.f3")}</li>
-                <li><span className="feat-dot">✦</span> {t("products.washBag.f4")}</li>
-              </ul>
+            <div className="product-module-card-wrap product-module-card-right reveal-right">
+              <div className="product-module-card">
+                <span className="product-module-date">{t("products.availableNow")}</span>
+                <h2 className="product-module-title serif">
+                  {t("products.washBag.title1")} <em>{t("products.washBag.title2")}</em>
+                </h2>
+                <div className="product-module-divider" />
+                <p className="product-module-desc">{t("productsPage.washBagDesc")}</p>
+                <ul className="product-module-features">
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f1")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f2")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f3")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f4")}</li>
+                </ul>
+                <Link href="/contact" className="product-module-btn">{t("productsPage.getInTouch")}</Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Product 2: Serum */}
-        <section className="product-showcase product-showcase-reverse">
-          <div className="product-showcase-inner">
-            <div className="product-showcase-img reveal-right">
-              <div className="product-showcase-img-frame" />
-              <Image
-                src="/product-serum.jpg"
-                alt={t("products.serum.alt")}
-                width={700}
-                height={700}
-                className="product-showcase-image"
-              />
+        {/* Product Module 2: Serum - Card left, image right */}
+        <section className="product-module product-module-alt">
+          <div className="product-module-inner product-module-layout-2">
+            <div className="product-module-shape product-module-shape-bl" aria-hidden />
+            <div className="product-module-shape product-module-shape-br" aria-hidden />
+            <div className="product-module-card-wrap product-module-card-left reveal-left">
+              <div className="product-module-card">
+                <span className="product-module-date product-module-date-coming">{t("products.comingSoon")}</span>
+                <h2 className="product-module-title serif">
+                  {t("products.serum.title1")} <em>{t("products.serum.title2")}</em>
+                </h2>
+                <div className="product-module-divider" />
+                <p className="product-module-desc">{t("productsPage.serumDesc")}</p>
+                <ul className="product-module-features">
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f1")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f2")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f3")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f4")}</li>
+                </ul>
+                <Link href="/contact" className="product-module-btn">{t("productsPage.getInTouch")}</Link>
+              </div>
             </div>
-            <div className="product-showcase-content reveal-left">
-              <span className="product-showcase-badge coming-soon">{t("products.comingSoon")}</span>
-              <h2 className="product-showcase-title serif">
-                {t("products.serum.title1")}<br /><em>{t("products.serum.title2")}</em>
-              </h2>
-              <p className="product-showcase-desc">{t("productsPage.serumDesc")}</p>
-              <ul className="product-showcase-features">
-                <li><span className="feat-dot">✦</span> {t("products.serum.f1")}</li>
-                <li><span className="feat-dot">✦</span> {t("products.serum.f2")}</li>
-                <li><span className="feat-dot">✦</span> {t("products.serum.f3")}</li>
-                <li><span className="feat-dot">✦</span> {t("products.serum.f4")}</li>
-              </ul>
-              <div className="product-notify-block reveal">
-                <p className="product-notify-label">{t("productsPage.notifyLabel")}</p>
-                <div className="notify-form">
-                  <input className="notify-input" type="email" placeholder={t("products.serum.notifyPlaceholder")} />
-                  <button className="notify-btn" type="button" onClick={handleNotifyClick}>{t("products.serum.notifyBtn")}</button>
-                </div>
-                <p className="notify-note">{t("products.serum.notifyNote")}</p>
+            <div className="product-module-img-wrap reveal-right">
+              <div className="product-module-gallery">
+                <Image src="/images/serum 1.2.png" alt={t("products.serum.alt")} width={400} height={400} className="product-module-img product-module-img-main" />
+                <Image src="/images/serum 2.2.png" alt={t("products.serum.alt")} width={400} height={400} className="product-module-img product-module-img-secondary" />
               </div>
             </div>
           </div>

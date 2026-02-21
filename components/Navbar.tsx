@@ -6,7 +6,7 @@ import { useLocale } from "@/lib/locale-context";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 type NavbarProps = {
-  activeLink?: "products" | "contact";
+  activeLink?: "home" | "products" | "contact";
   homeHref?: string;
 };
 
@@ -56,6 +56,7 @@ export function Navbar({ activeLink, homeHref = "/#hero" }: NavbarProps) {
           <div className="nav-right">
             <LanguageSwitcher />
             <ul className="nav-links">
+              <li><Link href={homeHref} className={activeLink === "home" ? "nav-active" : ""} onClick={closeMenu}>{t("nav.home")}</Link></li>
               <li><Link href="/products" className={activeLink === "products" ? "nav-active" : ""} onClick={closeMenu}>{t("nav.products")}</Link></li>
               <li><Link href="/contact" className={activeLink === "contact" ? "nav-active" : ""} onClick={closeMenu}>{t("nav.contact")}</Link></li>
             </ul>
@@ -65,6 +66,10 @@ export function Navbar({ activeLink, homeHref = "/#hero" }: NavbarProps) {
 
       <div className={`nav-overlay ${menuOpen ? "open" : ""}`} onClick={closeMenu} aria-hidden="true" />
       <div className={`nav-menu ${menuOpen ? "open" : ""}`}>
+        <Link href={homeHref} className="nav-menu-logo" onClick={closeMenu}>
+          <img src="/logo.png" alt="Lunor Hair Extensions" className="nav-menu-logo-img" />
+        </Link>
+        <Link href={homeHref} className={activeLink === "home" ? "nav-active" : ""} onClick={closeMenu}>{t("nav.home")}</Link>
         <Link href="/products" className={activeLink === "products" ? "nav-active" : ""} onClick={closeMenu}>{t("nav.products")}</Link>
         <Link href="/contact" className={activeLink === "contact" ? "nav-active" : ""} onClick={closeMenu}>{t("nav.contact")}</Link>
       </div>

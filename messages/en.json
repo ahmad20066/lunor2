@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "products": "Products",
     "contact": "Contact"
   },
@@ -9,20 +10,28 @@
     "titleLuxury": "Luxury",
     "titleLine2": "Meets Hair",
     "titlePerfection": "Perfection",
-    "subtitle": "Premium formulas crafted to protect, nourish, and extend the life of your extensions — because your hair deserves the finest rituals.",
+    "titleEn1": "Where Luxury Meets Hair",
+    "titleEn2": "Perfection",
+    "titleAr1": "",
+    "titleAr2": "",
+    "subtitle": "Premium formulas crafted to protect, nourish, and extend the life of your extensions  because your hair deserves the finest rituals.",
     "exploreExtensions": "Explore Extensions",
     "discoverProducts": "Discover Products",
     "scroll": "Scroll",
     "altImage": "Lunor luxury hair care"
   },
   "about": {
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "beforeAlt": "Hair before extensions",
+    "afterAlt": "Hair with Lunor extensions",
     "tag": "Our Story",
     "titleLine1": "Born from",
     "titlePassion": "Passion",
     "titleLine2": "for Flawless Hair",
-    "body1": "Lunor is a premium beauty brand dedicated to elevating hair extension care and redefining modern hair rituals. Born from a passion for luxury, performance, and innovation — we were created to solve the real problems women face with hair extensions.",
+    "body1": "Lunor is a premium beauty brand dedicated to elevating hair extension care and redefining modern hair rituals. Born from a passion for luxury, performance, and innovation  we were created to solve the real problems women face with hair extensions.",
     "quote": "\"We don't just create products. We create rituals, confidence, and unforgettable hair experiences.\"",
-    "cite": "— Lunor, Hair Extensions",
+    "cite": " Lunor, Hair Extensions",
     "body2": "From our signature Shine Bomb Ampoules to our innovative Extension Survival Kit, every Lunor product is crafted with high-performance formulas, premium ingredients, and luxurious aesthetics.",
     "exploreProducts": "Explore Our Products",
     "yearsOf": "years of",
@@ -36,7 +45,7 @@
     "clipIn": {
       "tag": "Most Popular",
       "title": "Clip-In\nExtensions",
-      "desc": "The perfect solution for instant length and volume — no commitment needed. Easy to apply at home, removable in seconds, and completely damage-free.",
+      "desc": "The perfect solution for instant length and volume  no commitment needed. Easy to apply at home, removable in seconds, and completely damage-free.",
       "f1": "Instant transformation at home",
       "f2": "Zero damage to natural hair",
       "f3": "Available in all shades & lengths",
@@ -70,7 +79,7 @@
     "washBag": {
       "title1": "Extension",
       "title2": "Wash Bag",
-      "desc": "Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing — preventing tangles, stretch, and damage while keeping every strand perfectly maintained.",
+      "desc": "Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing  preventing tangles, stretch, and damage while keeping every strand perfectly maintained.",
       "f1": "Fine-mesh premium netting protects every strand",
       "f2": "Gold tassel & satin drawstring closure",
       "f3": "Prevents tangling, matting & heat damage",
@@ -98,7 +107,7 @@
     "titleLine1": "Crafted for",
     "perfection": "Extension Perfection",
     "subtitle": "Premium care essentials designed to protect, nourish, and extend the life of your hair extensions.",
-    "washBagDesc": "Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing — preventing tangles, stretch, and damage while keeping every strand perfectly maintained.",
+    "washBagDesc": "Washing your extensions has never felt so luxurious. The Lunor Extension Wash Bag is designed to protect your hair during machine washing  preventing tangles, stretch, and damage while keeping every strand perfectly maintained.",
     "serumDesc": "Our most anticipated formula yet. A lightweight, high-performance treatment designed to eliminate knots, restore silk-smooth texture, and extend the lifespan of your extensions with every use.",
     "notifyLabel": "Be the first to know when it launches",
     "values": {
