@@ -51,24 +51,6 @@ export default function Home() {
     };
   }, []);
 
-  const handleNotifyClick = () => {
-    const notifyBtn = document.querySelector(".notify-btn") as HTMLButtonElement;
-    const notifyInput = document.querySelector(".notify-input") as HTMLInputElement;
-    if (!notifyBtn || !notifyInput) return;
-    if (notifyInput.value.includes("@")) {
-      notifyBtn.textContent = t("products.serum.notifyAdded");
-      notifyBtn.style.background = "#8B7336";
-      notifyInput.value = "";
-      setTimeout(() => {
-        notifyBtn.textContent = t("products.serum.notifyBtn");
-        notifyBtn.style.background = "";
-      }, 3000);
-    } else {
-      notifyInput.style.borderColor = "#D4246E";
-      setTimeout(() => (notifyInput.style.borderColor = ""), 2000);
-    }
-  };
-
   return (
     <>
       <Navbar activeLink="home" homeHref="/#hero" />
@@ -130,17 +112,13 @@ export default function Home() {
             <div className="about-img-wrap reveal-left">
               <div className="about-img-frame" />
               <BeforeAfterSlider
-                beforeSrc="/without_extension.png"
-                afterSrc="/with_extension.jpg"
+                beforeSrc="/before.png"
+                afterSrc="/after.png"
                 beforeAlt={t("about.beforeAlt")}
                 afterAlt={t("about.afterAlt")}
                 beforeLabel={t("about.beforeLabel")}
                 afterLabel={t("about.afterLabel")}
               />
-              <div className="about-img-accent">
-                <span className="num serif">3+</span>
-                <span className="label">{t("about.yearsOf")}<br />{t("about.research")}</span>
-              </div>
             </div>
             <div className="about-text reveal-right">
               <span className="section-tag">{t("about.tag")}</span>
@@ -178,14 +156,6 @@ export default function Home() {
               <div className="ext-card-img-wrap">
                 <Image src="/images/2.clip in.png" alt={t("extensions.clipIn.title")} width={300} height={300} className="ext-card-img" />
               </div>
-              <div className="ext-icon">
-                <div className="ext-icon-circle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#8B7336" strokeWidth="1.5">
-                    <path d="M12 2C12 2 8 6 8 11C8 13.8 9.8 16.2 12 17C14.2 16.2 16 13.8 16 11C16 6 12 2 12 2Z"/>
-                    <path d="M12 17V22M9 22H15"/>
-                  </svg>
-                </div>
-              </div>
               <span className="ext-card-tag">{t("extensions.clipIn.tag")}</span>
               <h3 className="ext-card-title serif" style={{ whiteSpace: "pre-line" }}>{t("extensions.clipIn.title")}</h3>
               <p className="ext-card-desc">{t("extensions.clipIn.desc")}</p>
@@ -201,14 +171,6 @@ export default function Home() {
               <div className="ext-card-img-wrap">
                 <Image src="/images/tape in.2.2.png" alt={t("extensions.tapeIn.title")} width={300} height={300} className="ext-card-img" />
               </div>
-              <div className="ext-icon">
-                <div className="ext-icon-circle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#8B7336" strokeWidth="1.5">
-                    <path d="M5 6H19M5 10H19M5 14H14M5 18H11"/>
-                    <path d="M17 14L19 16L23 12"/>
-                  </svg>
-                </div>
-              </div>
               <span className="ext-card-tag">{t("extensions.tapeIn.tag")}</span>
               <h3 className="ext-card-title serif" style={{ whiteSpace: "pre-line" }}>{t("extensions.tapeIn.title")}</h3>
               <p className="ext-card-desc">{t("extensions.tapeIn.desc")}</p>
@@ -223,15 +185,6 @@ export default function Home() {
               <span className="ext-card-bg-number">03</span>
               <div className="ext-card-img-wrap">
                 <Image src="/images/nano 2.png" alt={t("extensions.nano.title")} width={300} height={300} className="ext-card-img" />
-              </div>
-              <div className="ext-icon">
-                <div className="ext-icon-circle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#8B7336" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="2"/>
-                    <path d="M12 2V4M12 20V22M2 12H4M20 12H22"/>
-                    <path d="M5.6 5.6L7 7M17 17L18.4 18.4M18.4 5.6L17 7M7 17L5.6 18.4"/>
-                  </svg>
-                </div>
               </div>
               <span className="ext-card-tag">{t("extensions.nano.tag")}</span>
               <h3 className="ext-card-title serif" style={{ whiteSpace: "pre-line" }}>{t("extensions.nano.title")}</h3>
@@ -256,47 +209,67 @@ export default function Home() {
             </h2>
             <div className="gold-line" style={{ marginTop: "20px" }} />
           </div>
-          <div className="product-row reveal">
-            <div className="product-img-col" style={{ position: "relative" }}>
-              <Image src="/product-wash-bag.jpg" alt={t("products.washBag.alt")} fill style={{ objectFit: "cover" }} sizes="(max-width: 900px) 100vw, 50vw" />
-            </div>
-            <div className="product-info-col">
-              <span className="product-badge">{t("products.availableNow")}</span>
-              <h3 className="product-name serif">{t("products.washBag.title1")}<br /><em>{t("products.washBag.title2")}</em></h3>
-              <p className="product-desc">{t("products.washBag.desc")}</p>
-              <ul className="product-features">
-                <li><span className="feat-icon">✦</span> {t("products.washBag.f1")}</li>
-                <li><span className="feat-icon">✦</span> {t("products.washBag.f2")}</li>
-                <li><span className="feat-icon">✦</span> {t("products.washBag.f3")}</li>
-                <li><span className="feat-icon">✦</span> {t("products.washBag.f4")}</li>
-              </ul>
-            </div>
-          </div>
-          <div className="product-row reverse reveal">
-            <div className="product-img-col" style={{ position: "relative" }}>
-              <Image src="/product-serum.jpg" alt={t("products.serum.alt")} fill style={{ objectFit: "cover" }} sizes="(max-width: 900px) 100vw, 50vw" />
-            </div>
-            <div className="product-info-col">
-              <span className="product-badge coming-soon-badge">{t("products.comingSoon")}</span>
-              <h3 className="product-name serif">{t("products.serum.title1")}<br /><em>{t("products.serum.title2")}</em></h3>
-              <p className="product-desc">{t("products.serum.desc")}</p>
-              <ul className="product-features">
-                <li><span className="feat-icon">✦</span> {t("products.serum.f1")}</li>
-                <li><span className="feat-icon">✦</span> {t("products.serum.f2")}</li>
-                <li><span className="feat-icon">✦</span> {t("products.serum.f3")}</li>
-                <li><span className="feat-icon">✦</span> {t("products.serum.f4")}</li>
-              </ul>
-              <p style={{ fontSize: "0.8rem", color: "var(--pink)", fontWeight: 500, marginBottom: "12px", letterSpacing: "1px" }}>
-                {t("products.serum.notifyLabel")}
-              </p>
-              <div className="notify-form">
-                <input className="notify-input" type="email" placeholder={t("products.serum.notifyPlaceholder")} />
-                <button className="notify-btn" onClick={handleNotifyClick}>{t("products.serum.notifyBtn")}</button>
-              </div>
-              <p className="notify-note">{t("products.serum.notifyNote")}</p>
-            </div>
-          </div>
         </div>
+        {/* Product Module 1: Wash Bag - Image left, card right */}
+        <section className="product-module">
+          <div className="product-module-inner product-module-layout-1">
+            <div className="product-module-shape product-module-shape-tl" aria-hidden />
+            <div className="product-module-shape product-module-shape-tr" aria-hidden />
+            <div className="product-module-img-wrap reveal-left">
+              <div className="product-module-gallery">
+                <Image src="/images/bag 1.2.png" alt={t("products.washBag.alt")} width={400} height={400} className="product-module-img product-module-img-main" />
+                <Image src="/images/bag 2.2png.png" alt={t("products.washBag.alt")} width={400} height={400} className="product-module-img product-module-img-secondary" />
+              </div>
+            </div>
+            <div className="product-module-card-wrap product-module-card-right reveal-right">
+              <div className="product-module-card">
+                <span className="product-module-date">{t("products.availableNow")}</span>
+                <h2 className="product-module-title serif">
+                  {t("products.washBag.title1")} <em>{t("products.washBag.title2")}</em>
+                </h2>
+                <div className="product-module-divider" />
+                <p className="product-module-desc">{t("productsPage.washBagDesc")}</p>
+                <ul className="product-module-features">
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f1")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f2")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f3")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.washBag.f4")}</li>
+                </ul>
+                <Link href="/contact" className="product-module-btn">{t("productsPage.getInTouch")}</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Product Module 2: Serum - Card left, image right */}
+        <section className="product-module product-module-alt">
+          <div className="product-module-inner product-module-layout-2">
+            <div className="product-module-shape product-module-shape-bl" aria-hidden />
+            <div className="product-module-shape product-module-shape-br" aria-hidden />
+            <div className="product-module-card-wrap product-module-card-left reveal-left">
+              <div className="product-module-card">
+                <span className="product-module-date product-module-date-coming">{t("products.comingSoon")}</span>
+                <h2 className="product-module-title serif">
+                  {t("products.serum.title1")} <em>{t("products.serum.title2")}</em>
+                </h2>
+                <div className="product-module-divider" />
+                <p className="product-module-desc">{t("productsPage.serumDesc")}</p>
+                <ul className="product-module-features">
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f1")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f2")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f3")}</li>
+                  <li><span className="feat-dot">✦</span> {t("products.serum.f4")}</li>
+                </ul>
+                <Link href="/contact" className="product-module-btn">{t("productsPage.getInTouch")}</Link>
+              </div>
+            </div>
+            <div className="product-module-img-wrap reveal-right">
+              <div className="product-module-gallery">
+                <Image src="/images/serum 1.2.png" alt={t("products.serum.alt")} width={400} height={400} className="product-module-img product-module-img-main" />
+                <Image src="/images/serum 2.2.png" alt={t("products.serum.alt")} width={400} height={400} className="product-module-img product-module-img-secondary" />
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section id="values">

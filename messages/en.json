@@ -10,8 +10,8 @@
     "titleLuxury": "Luxury",
     "titleLine2": "Meets Hair",
     "titlePerfection": "Perfection",
-    "titleEn1": "Where Luxury Meets Hair",
-    "titleEn2": "Perfection",
+    "titleEn1": "Where Luxury",
+    "titleEn2": "Meets Hair Perfection",
     "titleAr1": "",
     "titleAr2": "",
     "subtitle": "Premium formulas crafted to protect, nourish, and extend the life of your extensions  because your hair deserves the finest rituals.",
@@ -52,7 +52,7 @@
       "f4": "Perfect for daily wear or special occasions"
     },
     "tapeIn": {
-      "tag": "Semi-Permanent",
+      "tag": "Long-Lasting",
       "title": "Tape-In\nExtensions",
       "desc": "A seamless, natural look that blends effortlessly with your hair. Lightweight adhesive wefts lie flat against the scalp for invisible coverage.",
       "f1": "Virtually undetectable blend",
@@ -140,9 +140,13 @@
     "email": "Email",
     "phone": "Phone",
     "instagram": "Instagram",
+    "facebook": "Facebook",
+    "tiktok": "TikTok",
     "emailHint": "We reply within 24 hours",
     "phoneHint": "Call or WhatsApp",
     "instagramHint": "Follow our journey",
+    "facebookHint": "Like & follow",
+    "tiktokHint": "Follow us",
     "backToHome": "Back to Home"
   },
   "footer": {

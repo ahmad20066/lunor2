@@ -89,7 +89,7 @@ export function BeforeAfterSlider({
         <div className="before-after-handle-line" />
         <div className="before-after-handle-knob">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M8 5l4 4 4-4M8 19l4-4 4 4" />
+            <path d="M8 5l4 4 4-4M8 19l4-4 4 4" transform="rotate(90 12 12)" />
           </svg>
         </div>
       </div>
